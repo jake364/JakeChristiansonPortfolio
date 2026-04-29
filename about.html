@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jake Christianson | About Me</title>
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem('portfolio-theme');
+        if (theme === 'dark' || theme === 'light') {
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch (_error) {}
+    })();
+    </script>
+  <meta name="description" content="About Jake Christianson, a UX researcher and UX designer focused on practical, user-centered portfolio work." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+
+
+  <script src="assets/js/script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Go to home page">
+        <strong>Jake Christianson</strong>
+        <span>UX Researcher &amp; UX Designer</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menu</button>
+      <nav id="site-nav" class="nav-links" data-nav-menu>
+        <a href="bio.html">Bio</a>
+        <a href="about.html" aria-current="page">About Me</a>
+        <div class="nav-group">
+          <a class="nav-trigger" href="blog.html">Blog Posts</a>
+          <div class="nav-dropdown">
+            <a href="blog-1.html">Post 1</a>
+            <a href="blog-2.html">Post 2</a>
+            <a href="blog-3.html">Post 3</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <a class="nav-trigger" href="projects.html">Projects</a>
+          <div class="nav-dropdown">
+            <a href="dealdash-ai.html">DealDash AI</a>
+            <a href="roomeo.html">Roomeo</a>
+            <a href="gameflix.html">GameFlix</a>
+          </div>
+        </div>
+        <a href="resume.html">Resume</a>
+        <a href="social.html">Social Links</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Dark Mode</button>
+        <script>
+          (() => {
+            try {
+              const theme = localStorage.getItem('portfolio-theme');
+              const button = document.currentScript.previousElementSibling;
+              if (!button) {
+                return;
+              }
+              if (theme === 'dark') {
+                button.textContent = 'Light Mode';
+                button.setAttribute('aria-pressed', 'true');
+              } else {
+                button.textContent = 'Dark Mode';
+                button.setAttribute('aria-pressed', 'false');
+              }
+            } catch (_error) {}
+          })();
+        </script>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page site-shell about-page">
+    <section class="card about-hero-card">
+      <div class="about-hero-copy card-body">
+        <span class="bio-kicker">About:</span>
+        <h1 class="page-title">Jake Christianson</h1>
+        <p class="section-subtitle">
+          I grew up in Belmar, New Jersey, and a lot of who I am comes from the people, experiences, and environments I’ve been around. Whether it’s my family, time at Penn State, or traveling, I tend to pay attention to what’s going on around me and learn from it.
+        </p>
+      </div>
+      <figure class="about-hero-photo about-photo-no-caption">
+        <img src="assets/images/about/surfing2.JPG" alt="Jake surfing in Hawaii" loading="lazy" decoding="async" />
+      </figure>
+    </section>
+
+    <section class="card about-row about-row-media">
+      <div class="about-copy card-body">
+        <h2>Family</h2>
+        <p>
+          My family has always been a big part of my life. I’m the oldest of three boys, with my brothers Colin and Ty close behind, so growing up was always competitive, active, and never quiet.
+        </p>
+        <p>
+          My mom, Barbara, introduced me to the water at a young age, which turned into a lasting part of who I am. My dad, Tod, has had a big influence on how I approach things—he’s someone who leads by example and has helped me stay grounded over time.
+        </p>
+      </div>
+      <figure class="about-photo about-photo-no-caption">
+        <img src="assets/images/about/Christiansonfamilypic.jpg" alt="Jake with his family at a formal event" loading="lazy" decoding="async" />
+      </figure>
+    </section>
+
+    <section class="card about-row reverse about-row-community">
+      <div class="about-copy card-body">
+        <h2>Penn State and community</h2>
+        <p>
+          A lot of my time at Penn State has been about being part of something bigger than just classes. Whether it’s football games, the outdoor hockey game, or just being in the crowd, those are some of the moments that stand out the most.
+        </p>
+        <p>
+          Being part of Alpha Chi Rho gave me the chance to participate in THON in honor of a friend I lost to cancer. It’s something that’s stuck with me and showed me how much a community can do when people really show up for each other.
+        </p>
+      </div>
+      <div class="about-community-stack">
+        <figure class="about-photo">
+          <img src="assets/images/about/thonaxp.JPG" alt="Alpha Chi Rho at THON" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="about-photo">
+          <img src="assets/images/about/PSUfootballgame.jpeg" alt="Penn State football game" loading="lazy" decoding="async" />
+        </figure>
+        <figure class="about-photo">
+          <img src="assets/images/about/PSUhockeygame.jpeg" alt="Penn State outdoor hockey game" loading="lazy" decoding="async" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="card about-row about-row-media about-row-travel">
+      <div class="about-copy card-body">
+        <h2>Travel</h2>
+        <p>
+          Traveling has become a big part of how I spend my time, especially since my family trades a traditional Christmas for trips together. A lot of those trips have taken me to warm places where I can surf, dive, and explore new environments.
+        </p>
+        <p>
+          Some of my best memories come from being in the water—whether it’s paddling over an eight-foot sand tiger shark in Belmar or being just a few feet away from a crocodile in Costa Rica.
+        </p>
+        <p>
+          A few places stand out. Costa Rica was probably the best overall, with surfing one day and exploring the jungle the next. Maui had the best diving I’ve experienced so far and gave me my most memorable New Year’s. Curaçao was unique because I could snorkel right from the hotel, with coral everywhere you looked.
+        </p>
+      </div>
+      <div class="travel-carousel" data-travel-carousel>
+        <div class="travel-carousel-frame">
+          <img class="is-active" data-carousel-slide src="assets/images/about/hawaii landscape4.JPEG" alt="Hawaii landscape at sunset" loading="lazy" decoding="async" />
+          <img data-carousel-slide src="assets/images/about/CostaRica landscape3.jpeg" alt="Costa Rica sunset over the ocean" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/hawaii surfing landscape.JPG" alt="Hawaii surfing beach" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/hawaii landscape2.jpeg" alt="Hawaii shoreline and palms" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/CostaRica landscape4.jpeg" alt="Costa Rica beach at sunset" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/CostaRica landscapecows.jpeg" alt="Cows in a Costa Rica landscape" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/CostaRica landscape.jpeg" alt="Costa Rica sunset near the water" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/CostaRica landscape7.jpeg" alt="Costa Rica ocean and evening sky" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/hawaii landscape.jpeg" alt="Hawaii beach with palm trees" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/CostaRica landscape2.jpeg" alt="Costa Rica beach sunset" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/hawaii landscape3.jpeg" alt="Hawaii coast with blue water" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/CostaRica landscape8.jpeg" alt="Costa Rica ocean horizon at sunset" loading="lazy" decoding="async" hidden />
+          <img data-carousel-slide src="assets/images/about/plane landscape.jpeg" alt="View from an airplane over land" loading="lazy" decoding="async" hidden />
+        </div>
+        <button class="travel-carousel-btn travel-carousel-prev" type="button" data-carousel-prev aria-label="Previous travel image">&lsaquo;</button>
+        <button class="travel-carousel-btn travel-carousel-next" type="button" data-carousel-next aria-label="Next travel image">&rsaquo;</button>
+        <p class="travel-carousel-count" data-carousel-count>1 / 13</p>
+      </div>
+    </section>
+
+    <section class="card about-row reverse about-row-media">
+      <figure class="about-photo">
+        <img src="assets/images/about/s294rong_travel_625x300_21_January_26.webp" alt="Warm beach travel scene" loading="lazy" decoding="async" />
+        <figcaption>Image source: Unsplash</figcaption>
+      </figure>
+      <div class="about-copy card-body">
+        <h2>SCUBA diving</h2>
+        <p>
+          I got SCUBA certified in Curaçao in 2025, but I had already experienced diving in places like Hawaii and Key West before that. Being underwater is one of the few times everything feels completely still, which makes it one of the most peaceful experiences I’ve had.
+        </p>
+        <p>
+          It’s a completely different perspective—one that makes you slow down and actually take in what’s around you.
+        </p>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

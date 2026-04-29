@@ -1,11 +1,24 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jake Christianson | Bio</title>
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem('portfolio-theme');
+        if (theme === 'dark' || theme === 'light') {
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch (_error) {}
+    })();
+    </script>
   <meta name="description" content="Professional bio, headshot, accomplishments, values, strengths, projects, and recognition for Jake Christianson." />
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+
+
   <script src="assets/js/script.js" defer></script>
 </head>
 <body>
@@ -18,6 +31,7 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menu</button>
       <nav id="site-nav" class="nav-links" data-nav-menu>
         <a href="bio.html" aria-current="page">Bio</a>
+        <a href="about.html">About Me</a>
         <div class="nav-group">
           <a class="nav-trigger" href="blog.html">Blog Posts</a>
           <div class="nav-dropdown">
@@ -35,39 +49,57 @@
           </div>
         </div>
         <a href="resume.html">Resume</a>
-        <a href="internships.html">Internships</a>
         <a href="social.html">Social Links</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Night Mode</button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Dark Mode</button>
+        <script>
+          (() => {
+            try {
+              const theme = localStorage.getItem('portfolio-theme');
+              const button = document.currentScript.previousElementSibling;
+              if (!button) {
+                return;
+              }
+              if (theme === 'dark') {
+                button.textContent = 'Light Mode';
+                button.setAttribute('aria-pressed', 'true');
+              } else {
+                button.textContent = 'Dark Mode';
+                button.setAttribute('aria-pressed', 'false');
+              }
+            } catch (_error) {}
+          })();
+        </script>
       </nav>
     </div>
   </header>
 
   <main class="page site-shell">
-    <section class="section">
-      <div class="section-inner">
-        <h1 class="page-title">Bio</h1>
-        <p class="section-subtitle">
-          This bio is written for employers, internship coordinators, and collaborators who want a designer-researcher
-          who thinks critically, communicates clearly, and builds with both user needs and technical constraints in mind.
-        </p>
+    <section class="section bio-hero-card">
+      <div class="section-inner bio-hero-inner">
+        <div class="bio-hero-copy">
+          <h1 class="page-title">Bio</h1>
+          <p class="section-subtitle">
+            UX researcher focused on turning real user behavior into clear, usable design decisions.
+          </p>
+        </div>
+        <img class="bio-hero-photo" src="assets/images/headshot-crop.jpg" alt="Jake Christianson headshot" />
       </div>
     </section>
 
     <section class="section">
       <div class="section-inner">
-        <div class="portrait">
-          <img src="assets/images/headshot-crop.jpg" alt="Jake Christianson headshot" />
+        <div class="bio-detail">
           <div class="bio-panel">
             <span class="bio-kicker">UX Researcher &amp; UX Designer</span>
             <h2 class="section-title" style="margin:0;">Human-centered designer, developer, and communicator</h2>
             <p class="section-subtitle" style="margin:0;">
-              I'm a Human-Centered Design and Development (HCDD) student at Penn State with a passion for understanding
+              I'm a Human-Centered Design and Development (HCDD) designer at Penn State with a passion for understanding
               how people interact with technology and using those insights to create intuitive, meaningful experiences.
               My work sits at the intersection of user research, design, and development, allowing me to approach
               problems from both a human and technical perspective.
             </p>
             <p class="section-subtitle" style="margin:0;">
-              Through my coursework and projects, I've conducted user research, built interactive prototypes, and
+              Through my projects and hands-on work, I've conducted user research, built interactive prototypes, and
               developed full-stack applications. I've worked on projects like DealDash AI, where I explored user
               behavior around decision-making and deal discovery, and Roomeo, where I applied contextual inquiry and
               usability testing to improve real-life roommate dynamics. These experiences have strengthened my ability
@@ -98,9 +130,3 @@
   </main>
 </body>
 </html>
-
-
-
-
-
-

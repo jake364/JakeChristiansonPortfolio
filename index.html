@@ -1,11 +1,24 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jake Christianson | Portfolio</title>
-  <meta name="description" content="Responsive personal portfolio for Jake Christianson with bio, blog posts, resume, internship experience, sample projects, and social links." />
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem('portfolio-theme');
+        if (theme === 'dark' || theme === 'light') {
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch (_error) {}
+    })();
+    </script>
+  <meta name="description" content="Responsive personal portfolio for Jake Christianson with bio, blog posts, resume, sample projects, and social links." />
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+
+
   <script src="assets/js/script.js" defer></script>
 </head>
 <body>
@@ -18,6 +31,7 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menu</button>
       <nav id="site-nav" class="nav-links" data-nav-menu>
         <a href="bio.html">Bio</a>
+        <a href="about.html">About Me</a>
         <div class="nav-group">
           <a class="nav-trigger" href="blog.html">Blog Posts</a>
           <div class="nav-dropdown">
@@ -35,49 +49,82 @@
           </div>
         </div>
         <a href="resume.html">Resume</a>
-        <a href="internships.html">Internships</a>
         <a href="social.html">Social Links</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Night Mode</button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Dark Mode</button>
+        <script>
+          (() => {
+            try {
+              const theme = localStorage.getItem('portfolio-theme');
+              const button = document.currentScript.previousElementSibling;
+              if (!button) {
+                return;
+              }
+              if (theme === 'dark') {
+                button.textContent = 'Light Mode';
+                button.setAttribute('aria-pressed', 'true');
+              } else {
+                button.textContent = 'Dark Mode';
+                button.setAttribute('aria-pressed', 'false');
+              }
+            } catch (_error) {}
+          })();
+        </script>
       </nav>
     </div>
   </header>
 
   <main class="page site-shell">
-    <section class="hero" style="--hero-image: url('https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1600&q=80');">
-      <div class="hero-content">
-        <h1>Designing digital work that is clear, useful, and ready to grow.</h1>
-        <p>
-          I am a UX Researcher &amp; UX Designer at Penn State with a Sociology minor.
-          My portfolio highlights user research, interface design, prototyping, development, and practical communication for future employers.
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="bio.html">View Bio</a>
-          <a class="button secondary" href="blog.html">Read Blog Posts</a>
-          <a class="button secondary" href="resume.html">Open Resume</a>
+    <section class="hero intro-hero" aria-labelledby="intro-heading">
+      <div class="intro-hero-stage" aria-hidden="true">
+        <svg class="portrait-draw" viewBox="0 0 720 720" role="img" aria-label="">
+          <defs>
+            <linearGradient id="portrait-line" x1="82" y1="110" x2="638" y2="650" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#0f766e" />
+              <stop offset="0.48" stop-color="#2b5f8a" />
+              <stop offset="1" stop-color="#8b5a2b" />
+            </linearGradient>
+            <linearGradient id="portrait-fill" x1="170" y1="140" x2="590" y2="640" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.82" />
+              <stop offset="1" stop-color="#dbeafe" stop-opacity="0.2" />
+            </linearGradient>
+          </defs>
+          <g class="person-icon">
+            <path class="person-silhouette" d="M360 612 C304 612 252 593 210 558 C238 516 283 486 317 472 L317 438 C293 421 279 392 276 356 C267 356 258 343 256 324 C254 309 259 296 268 291 C269 226 306 184 360 184 C414 184 451 226 452 291 C461 296 466 309 464 324 C462 343 453 356 444 356 C441 392 427 421 403 438 L403 472 C437 486 482 516 510 558 C468 593 416 612 360 612Z" />
+            <path class="person-hair" d="M276 298 C280 238 313 198 360 198 C407 198 439 230 446 282 C427 256 398 243 360 243 C323 243 295 262 276 298Z" />
+            <path class="person-detail person-detail-neck" d="M317 472 C339 488 381 488 403 472" />
+            <path class="person-detail person-detail-shoulders" d="M246 555 C298 585 422 585 474 555" />
+            <path class="person-detail person-detail-hair" d="M292 282 C320 258 354 249 392 254" />
+            <path id="avatar-draw-half" class="snake-line avatar-draw avatar-draw-left" d="M210 558 C238 516 283 486 317 472 L317 438 C293 421 279 392 276 356 C267 356 258 343 256 324 C254 309 259 296 268 291 C269 226 306 184 360 184" />
+            <use class="snake-line avatar-draw avatar-draw-right" href="#avatar-draw-half" transform="translate(720 0) scale(-1 1)" />
+          </g>
+          <path class="snapshot-corner snapshot-corner-tr" d="M560 176 L612 176 L612 228" />
+          <path class="snapshot-corner snapshot-corner-br" d="M612 492 L612 544 L560 544" />
+          <path class="snapshot-corner snapshot-corner-bl" d="M160 544 L108 544 L108 492" />
+          <path class="snapshot-corner snapshot-corner-tl" d="M108 228 L108 176 L160 176" />
+          <path class="focus-line focus-line-right" d="M564 292 C584 333 584 387 564 428" />
+          <path class="focus-line focus-line-left" d="M156 428 C136 387 136 333 156 292" />
+        </svg>
+        <div class="intro-headshot">
+          <img src="assets/images/headshot-2024-hero.jpg" alt="" />
+        </div>
+        <div class="camera-flash">
+          <span class="flash-core"></span>
+          <span class="flash-ray flash-ray-horizontal"></span>
+          <span class="flash-ray flash-ray-vertical"></span>
+          <span class="flash-ray flash-ray-diagonal-a"></span>
+          <span class="flash-ray flash-ray-diagonal-b"></span>
         </div>
       </div>
-      <div class="caption-bar">
-        Background image source:
-        <a href="https://unsplash.com/photos/7okkFhxrxNw" target="_blank" rel="noreferrer">Unsplash</a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner">
-        <h2 class="section-title">Bio preview</h2>
-        <div class="portrait">
-          <img src="assets/images/headshot-crop.jpg" alt="Jake Christianson headshot" />
-          <div class="bio-panel">
-            <p class="section-subtitle" style="margin:0;">
-              Jake Christianson builds interfaces and applications that are practical, organized, and easy to use.
-              He is especially interested in projects that combine research, design thinking, and clear presentation.
-            </p>
-            <div class="bio-meta">
-              <span>UX Researcher &amp; UX Designer</span>
-              <span>Sociology minor</span>
-              <span>Penn State University</span>
-            </div>
-          </div>
+      <div class="intro-hero-copy">
+        <p class="intro-kicker">UX Researcher &amp; UX Designer</p>
+        <h1 id="intro-heading">Jake Christianson</h1>
+        <p>
+          I’m a UX researcher and designer at Penn State focused on building user-centered products from research to prototype. My work highlights usability, efficiency, and reducing friction in everyday digital experiences.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="projects.html">View Projects</a>
+          <a class="button secondary" href="resume.html">Open Resume</a>
+          <a class="button secondary" href="social.html">Connect</a>
         </div>
       </div>
     </section>
@@ -86,7 +133,7 @@
       <div class="section-inner">
         <h2 class="section-title">Quick snapshot</h2>
         <p class="section-subtitle">
-          The goal of this portfolio is to highlight my knowledge of user-centered design, coding, prototyping, teamwork, and project work in an organized and detailed way.
+          This portfolio aims to highlight my knowledge of user-centered design, coding, prototyping, teamwork, and project work in an organized and detailed way.
         </p>
         <div class="grid three">
           <div class="metric">
@@ -140,13 +187,45 @@
     <section class="section">
       <div class="section-inner">
         <h2 class="section-title">Connect</h2>
+        <p class="section-subtitle">
+          These links are here for quick professional contact. Use LinkedIn for networking, GitHub for code, and email if you want to reach out directly.
+        </p>
         <div class="social-row">
-          <a class="social-pill social-pill-home" href="social.html">
-            <div>
-              <strong>Social links</strong>
-              <span>LinkedIn, GitHub, and email contact in one clean place</span>
-            </div>
-            <span>Open</span>
+          <a class="social-pill social-pill-linkedin" href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" rel="noreferrer">
+            <span class="social-pill-leading">
+              <span class="social-pill-icon" aria-hidden="true">in</span>
+              <span class="social-pill-copy">
+                <strong>LinkedIn</strong>
+                <span>Professional profile and networking</span>
+              </span>
+            </span>
+            <span class="social-pill-action">Open</span>
+          </a>
+          <a class="social-pill social-pill-github" href="https://github.com/jake364" target="_blank" rel="noreferrer">
+            <span class="social-pill-leading">
+              <span class="social-pill-icon social-pill-icon-image" aria-hidden="true">
+                <img src="assets/images/social/github-invertocat-logo.svg" alt="" />
+              </span>
+              <span class="social-pill-copy">
+                <strong>GitHub</strong>
+                <span>Code, projects, and technical work</span>
+              </span>
+            </span>
+            <span class="social-pill-action">Open</span>
+          </a>
+          <a class="social-pill social-pill-email" href="mailto:Jake72004@gmail.com">
+            <span class="social-pill-leading">
+              <span class="social-pill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                  <path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 2.2V17h16V8.2l-8 5.2-8-5.2zm8 3.2 8-5.2H4l8 5.2z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="social-pill-copy">
+                <strong>Email</strong>
+                <span>Jake72004@gmail.com</span>
+              </span>
+            </span>
+            <span class="social-pill-action">Send</span>
           </a>
         </div>
       </div>
@@ -154,9 +233,3 @@
   </main>
 </body>
 </html>
-
-
-
-
-
-

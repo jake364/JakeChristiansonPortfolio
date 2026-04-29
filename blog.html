@@ -1,11 +1,24 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jake Christianson | Blog Posts</title>
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem('portfolio-theme');
+        if (theme === 'dark' || theme === 'light') {
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch (_error) {}
+    })();
+    </script>
   <meta name="description" content="Landing page for all three blog posts." />
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+
+
   <script src="assets/js/script.js" defer></script>
 </head>
 <body>
@@ -18,6 +31,7 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>Menu</button>
       <nav id="site-nav" class="nav-links" data-nav-menu>
         <a href="bio.html">Bio</a>
+        <a href="about.html">About Me</a>
         <div class="nav-group">
           <a class="nav-trigger" href="blog.html" aria-current="page">Blog Posts</a>
           <div class="nav-dropdown">
@@ -36,9 +50,26 @@
           </div>
         </div>
         <a href="resume.html">Resume</a>
-        <a href="internships.html">Internships</a>
         <a href="social.html">Social Links</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Night Mode</button>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">Dark Mode</button>
+        <script>
+          (() => {
+            try {
+              const theme = localStorage.getItem('portfolio-theme');
+              const button = document.currentScript.previousElementSibling;
+              if (!button) {
+                return;
+              }
+              if (theme === 'dark') {
+                button.textContent = 'Light Mode';
+                button.setAttribute('aria-pressed', 'true');
+              } else {
+                button.textContent = 'Dark Mode';
+                button.setAttribute('aria-pressed', 'false');
+              }
+            } catch (_error) {}
+          })();
+        </script>
       </nav>
     </div>
   </header>
@@ -86,10 +117,3 @@
   </main>
 </body>
 </html>
-
-
-
-
-
-
-
